@@ -4,6 +4,7 @@ import CodeEditor from "./components/CodeEditor/CodeEditor";
 import ResultDisplay from "./components/ResultDisplay/ResultDisplay";
 
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
+import TaskScreen from "./components/TaskScreen/TaskScreen";
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<string>("python");
@@ -72,21 +73,38 @@ const App: React.FC = () => {
     }
   };
 
+  const clearConsole = () => {
+    setResult(null);
+    setError(null);
+  };
+
   return (
-    <div>
+    <div className="app-container">
       <div className="title-container">
-        <h1>Code Editor {/* <span>Тестовый проект</span> */} </h1>
-      </div>
-      <div className="act-container">
-        <LanguageSelector
-          selectedLanguage={language}
-          setLanguage={handleLanguageChange}
-        />
-        <button onClick={runImitation}>Run</button>
+        <div className="title">
+          <h1>Code Editor</h1>
+        </div>
+        <div className="act-container">
+          <LanguageSelector
+            selectedLanguage={language}
+            setLanguage={handleLanguageChange}
+          />
+          <button onClick={runImitation}>Run</button>
+          <button className="clearButton" onClick={clearConsole}>Clear</button>
+        </div>
       </div>
       <div className="main-container">
-        <CodeEditor code={code} setCode={setCode} language={language} />
-        <ResultDisplay result={result} error={error} />
+        <div className="taskScreen-container">
+          <TaskScreen />
+        </div>
+        <div className="result-container">
+          <div className="codeEditor-container">
+            <CodeEditor code={code} setCode={setCode} language={language} />
+          </div>
+          <div className="resultDisplay-container">
+            <ResultDisplay result={result} error={error} />
+          </div>
+        </div>
       </div>
     </div>
   );
