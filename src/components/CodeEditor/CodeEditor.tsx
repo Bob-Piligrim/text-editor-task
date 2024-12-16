@@ -9,29 +9,29 @@ interface CodeEditorProps {
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({ code, setCode, language }) => {
-
   const handleCodeChange = (value?: string) => {
-    setCode(value || '');
-  };
-
-  const editorOptions = {
-    selectOnLineNumbers: true,
-    automaticLayout: true,
+    setCode(value || "");
   };
 
   return (
     <div>
-      <div className="editor-container">
-        <Editor
-          width="100%"
-          height="20vh"
-          language={language}
-          theme="vs-dark"
-          value={code}
-          options={editorOptions}
-          onChange={handleCodeChange}
-        />
-      </div>
+      <Editor
+        width=""
+        height="100%"
+        language={language}
+        theme="vs-light"
+        value={code}
+        options={{
+          selectOnLineNumbers: true,
+          renderLineHighlight: 'all',
+          automaticLayout: true,
+          fontSize: 22,
+          lineHeight: 30,
+          wordWrap: "on",
+          minimap: { enabled: true },
+        }}
+        onChange={handleCodeChange}
+      />
     </div>
   );
 };
