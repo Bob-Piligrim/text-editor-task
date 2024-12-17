@@ -23,3 +23,15 @@ pre {
   border-top: 1px solid rgba(82, 79, 79, 0.976);
   border-bottom: 1px solid rgba(82, 79, 79, 0.976);
 }
+
+@media (max-width: 1000px) {
+  .req-style {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 550px) {
+  .console > h2 {
+    font-size: 4vw;
+  }
+}

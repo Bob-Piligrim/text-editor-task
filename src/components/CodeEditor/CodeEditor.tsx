@@ -14,7 +14,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, setCode, language }) => {
   };
 
   return (
-    <div>
+    <div style={{height: "370px", paddingTop: "20px"}}>
       <Editor
         width=""
         height="100%"
@@ -28,7 +28,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, setCode, language }) => {
           fontSize: 22,
           lineHeight: 30,
           wordWrap: "on",
-          minimap: { enabled: true },
         }}
         onChange={handleCodeChange}
       />

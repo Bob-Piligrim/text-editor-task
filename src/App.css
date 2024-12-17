@@ -1,4 +1,7 @@
 .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .title-container {
@@ -8,7 +11,7 @@
   border-radius: 13px;
   display: flex;
   flex-direction: row;
-  margin: 30px 0;
+  margin: 30px 0 40px 0;
   justify-content: space-between;
 }
 
@@ -19,7 +22,7 @@
 
 h1 {
   color: #5063f0;
-  font-size: 60px;
+  font-size: 2.8vw;
   margin: 0;
 }
 
@@ -37,22 +40,30 @@ span {
 button,
 select {
   padding: 10px;
-  font-size: 20px;
+  font-size: 0.8vw;
   border: 1px solid #ccc;
   border-radius: 10px;
   transition: all 0.3s ease;
   color: white;
   height: 4em;
+  background: none;
+  -webkit-appearance: none; /* Safari и Chrome */
+  -moz-appearance: none; /*  Firefox */
+  appearance: none; /* др. браузеры */
+}
+
+select::after {
+  content: "";
 }
 
 button {
-  width: 10em;
+  width: 9vw;
   background-color: rgba(233, 30, 99, 1);
   margin-left: 20px;
 }
 
 select {
-  width: 16em;
+  width: 12vw;
   background-color: #5063f0;
 }
 
@@ -83,7 +94,7 @@ select:focus {
 }
 
 .clearButton {
-  width: 10em;
+  width: 9vw;
   background-color: rgb(243, 243, 243);
   border: 1px solid rgba(233, 30, 99, 1);
   color: rgba(233, 30, 99, 1);
@@ -97,61 +108,131 @@ select:focus {
 }
 
 .main-container {
+  flex: 1;
   width: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
   column-gap: 20px;
 }
 
 .taskScreen-container {
-  border: 1px solid white;
-  background-color: #ffffff;
-  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 13px;
   padding: 10px;
-  overflow-y: auto;
   color: black;
-  font-size: 30px;
-  height: 830px;
+  font-size: clamp(30px, 1.6vw, 40px);
+  max-height: 830px;
+  overflow-y: auto;
 }
 
 .result-container {
   display: flex;
   flex-direction: column;
   height: 850px;
-  overflow-y: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .codeEditor-container {
-  border: 1px solid white;
-  background-color: #ffffff;
-  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 13px;
+  height: 400px;
 }
 
 .resultDisplay-container {
-  margin-top: 10px;
-  height: 435px;
+  height: 445px;
 }
 
-@media (max-width: 768px) {
+.shadow {
+  border: 1px solid white;
+  background-color: #ffffff;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 13px;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 4vw;
+  }
+
+  button,
+  select {
+    font-size: 1.4vw;
+  }
+
   .main-container {
-    grid-template-columns: 1fr;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .result-container {
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .taskScreen-container {
+    font-size: 2vw;
+    height: 50vw;
+  }
+
+  .codeEditor-container {
+    height: 60vw;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+  }
+
+  .resultDisplay-container {
+    margin-top: 0;
+    height: 50vw;
+  }
+
+  .shadow {
+    border: 1px solid white;
+    background-color: #ffffff;
+    box-shadow: unset;
+    border-radius: 13px;
   }
 }
 
-/* @media (min-width: 800px) {
-  .main-container {
-    flex-direction: row;
+@media (max-width: 510px) {
+  .title-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    justify-content: unset;
+    height: 70px;
+    margin: 30px 0 20px 0;
   }
 
-  .main-container > * {
-    flex: 1;
+  .title {
+    padding: 0;
+    margin: 0;
+    text-align: center;
   }
-} */
+
+  h1 {
+    color: #5063f0;
+    font-size: 2.8vw;
+    margin: 0;
+  }
+
+  button,
+  select {
+    font-size: 1.6vw;
+  }
+
+  button,
+  .clearButton {
+    width: 12vw;
+  }
+
+  select {
+    width: 14vw;
+  }
+
+  .act-container {
+    margin-bottom: 10px;
+    text-align: unset;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

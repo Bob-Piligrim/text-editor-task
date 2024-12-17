@@ -5,6 +5,7 @@ import ResultDisplay from "./components/ResultDisplay/ResultDisplay";
 
 import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 import TaskScreen from "./components/TaskScreen/TaskScreen";
+import SupportUs from "./components/SupportUs/SupportUs";
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<string>("python");
@@ -90,22 +91,25 @@ const App: React.FC = () => {
             setLanguage={handleLanguageChange}
           />
           <button onClick={runImitation}>Run</button>
-          <button className="clearButton" onClick={clearConsole}>Clear</button>
+          <button className="clearButton" onClick={clearConsole}>
+            Clear
+          </button>
         </div>
       </div>
       <div className="main-container">
-        <div className="taskScreen-container">
+        <div className="taskScreen-container shadow">
           <TaskScreen />
         </div>
         <div className="result-container">
-          <div className="codeEditor-container">
+          <div className="codeEditor-container shadow">
             <CodeEditor code={code} setCode={setCode} language={language} />
           </div>
-          <div className="resultDisplay-container">
+          <div className="resultDisplay-container shadow">
             <ResultDisplay result={result} error={error} />
           </div>
         </div>
       </div>
+      <SupportUs />
     </div>
   );
 };
