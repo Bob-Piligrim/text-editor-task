@@ -14,7 +14,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, setCode, language }) => {
   };
 
   return (
-    <div style={{height: "370px", paddingTop: "20px"}}>
+    <div className="editor-container">
       <Editor
         width=""
         height="100%"
@@ -25,8 +25,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, setCode, language }) => {
           selectOnLineNumbers: true,
           renderLineHighlight: 'all',
           automaticLayout: true,
-          fontSize: 22,
-          lineHeight: 30,
+          fontSize: 20,
+          lineHeight: 20,
           wordWrap: "on",
         }}
         onChange={handleCodeChange}

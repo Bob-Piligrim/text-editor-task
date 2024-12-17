@@ -52,10 +52,6 @@ select {
   appearance: none; /* др. браузеры */
 }
 
-select::after {
-  content: "";
-}
-
 button {
   width: 9vw;
   background-color: rgba(233, 30, 99, 1);
@@ -119,24 +115,24 @@ select:focus {
   padding: 10px;
   color: black;
   font-size: clamp(30px, 1.6vw, 40px);
-  max-height: 830px;
   overflow-y: auto;
 }
 
 .result-container {
   display: flex;
   flex-direction: column;
-  height: 850px;
   width: 100%;
   overflow: hidden;
 }
 
 .codeEditor-container {
-  height: 400px;
+  height: 80vh;
 }
 
 .resultDisplay-container {
-  height: 445px;
+  margin-top: 20px;
+  min-height: 400px;
+  overflow-y: hidden;
 }
 
 .shadow {
@@ -170,18 +166,22 @@ select:focus {
 
   .taskScreen-container {
     font-size: 2vw;
-    height: 50vw;
+    overflow-y: hidden;
+  }
+
+  .result-container {
+    height: 70vh;
   }
 
   .codeEditor-container {
-    height: 60vw;
     margin-bottom: 20px;
     overflow-x: hidden;
+    height: 50vh;
   }
 
   .resultDisplay-container {
     margin-top: 0;
-    height: 50vw;
+    min-height: 450px;
   }
 
   .shadow {
@@ -195,11 +195,13 @@ select:focus {
 @media (max-width: 510px) {
   .title-container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(40px, 1fr));
     width: 100%;
     justify-content: unset;
-    height: 70px;
+    height: 90px;
     margin: 30px 0 20px 0;
+    padding-top: 5px;
+    overflow-y: hidden;
   }
 
   .title {
@@ -210,22 +212,22 @@ select:focus {
 
   h1 {
     color: #5063f0;
-    font-size: 2.8vw;
+    font-size: 5vw;
     margin: 0;
   }
 
   button,
   select {
-    font-size: 1.6vw;
+    font-size: 2vw;
   }
 
   button,
   .clearButton {
-    width: 12vw;
+    width: 16vw;
   }
 
   select {
-    width: 14vw;
+    width: 16vw;
   }
 
   .act-container {
@@ -234,5 +236,42 @@ select:focus {
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
+  }
+
+  .result-container {
+    height: 70vh;
+  }
+
+  .codeEditor-container {
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    height: 40vh;
+    min-height: 40vh;
+  }
+
+  .resultDisplay-container {
+    margin-top: 0;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 390px) {
+  .act-container {
+    justify-content: space-evenly;
+    padding: 0 5px;
+  }
+
+  button,
+  select {
+    font-size: 2.7vw;
+  }
+
+  button,
+  .clearButton {
+    width: 18vw;
+  }
+
+  select {
+    width: 18vw;
   }
 }
