@@ -13,13 +13,10 @@ const LanguageSelector: React.FC<LanguageSelecrotProps> = ({
     setLanguage(event.target.value);
   };
   return (
-    <select
-      value={selectedLanguage}
-      onChange={handleChange}
-    >
-      <option value="python">Python</option>
-      <option value="go">Go</option>
-    </select>
+      <select value={selectedLanguage} onChange={handleChange}>
+        <option value="python">Python</option>
+        <option value="go">Go</option>
+      </select>
   );
 };
 
