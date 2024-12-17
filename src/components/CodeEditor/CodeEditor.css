@@ -1,0 +1,17 @@
+.editor-container {
+    height: 55rem;
+    padding-top: 20px;
+}
+
+@media (max-width: 1000px) {
+    .editor-container {
+        height: 20rem;
+    } 
+}
+
+@media (max-width: 510px) {
+    .editor-container {
+        height: 28rem;
+    } 
+}
+

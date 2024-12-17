@@ -5,7 +5,7 @@
   border-radius: 13px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .support-text {
@@ -43,33 +43,51 @@
 
 @media (max-width: 1000px) {
   .support-text {
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     margin-top: 10px;
     color: #5063f0;
     margin-bottom: 0.4%;
   }
 
   .support-text > div {
-    width: 11vw;
+    width: 13vw;
   }
 
   .support-button {
-    font-size: 0.8vw;
-    width: 11vw;
-  }
-}
-
-@media (max-width: 510) {
-  .support-text {
-    font-size: 25px;
-    margin-top: 10px;
-    color: #5063f0;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #5063f0;
-  }
-
-  .support-button {
-    font-size: 1.6vw;
+    font-size: 1.4vw;
     width: 15vw;
   }
 }
+
+@media (max-width: 510px) {
+  .support-text {
+    font-size: 2vw;
+  }
+
+  .support-text > div {
+    width: 16vw;
+  }
+
+  .support-button {
+    font-size: 2vw;
+    width: 20vw;
+  }
+}
+
+@media (max-width: 390px) {
+  .support-text {
+    font-size: 2.4vw;
+  }
+
+  .support-text > div {
+    width: 20vw;
+  }
+
+  .support-button {
+    margin-top: 5px;
+    font-size: 3vw;
+    width: 25vw;
+  }
+}
+
+
